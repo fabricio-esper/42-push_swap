@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:47:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/27 10:16:42 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/27 13:05:15 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ void	validate_dup(int size, char **str);
 t_stack	*listnew(int data);
 t_stack	*listadd(t_stack *stack);
 t_stack	*listlast(t_stack *stack);
+void	listadd_front(t_stack **stack, t_stack *new);
 void	listadd_back(t_stack **stack, t_stack *new);
+// operations.c
+void	swap_x(t_stack *stack);
+void	push_x(t_stack *stack_x, t_stack *stack_y);
 
 #endif

@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/27 12:19:40 by fesper-s          #+#    #+#              #
+#    Updated: 2022/09/27 12:19:49 by fesper-s         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	= push_swap
 
 CFLAGS	= -g -Wall -Werror -Wextra
 
 LIBFT	= ./libft/libft.a
 
-SRCS	= ./src/push_swap.c ./src/error.c ./src/utils.c
+SRCS	= ./src/push_swap.c ./src/error.c ./src/utils.c ./src/operations.c
 
 OBJS	= $(SRCS:.c=.o)
 
