@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 08:33:13 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/27 13:19:25 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 09:03:20 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,17 @@ void	listadd_back(t_stack **stack, t_stack *new)
 	}
 	buffer = listlast(*stack);
 	buffer->next = new;
+}
+
+int	listsize(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }

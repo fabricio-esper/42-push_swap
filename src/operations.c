@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 12:14:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/27 14:26:55 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 14:08:34 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,27 @@ void	swap_x(t_stack *stack)
 	stack->data = buffer;
 }
 
-void	push_x(t_stack *stack_x, t_stack *stack_y)
+void	push_x(t_stack **stack_x, t_stack *stack_y)
 {
-	void *temp;
 
-	temp = stack_y;
-	listadd_front(&stack_x, listnew(stack_y->data));
-	stack_y = stack_y->next;
-	free(temp);
-	ft_printf("new start-> %d\n", stack_y->data);
+	listadd_front(stack_x, listnew(stack_y->data));
+	*stack_y = *stack_y->next;
+}
+
+void	rotate_x(t_stack *stack)
+{
+	int	buffer;
+
+	buffer = stack->data;
+	while (stack->next)
+	{
+		stack->data = stack->next->data;
+		stack = stack->next;
+	}
+	stack->data = buffer;
+}
+
+void	rrotate_x(t_stack *stack)
+{
+	listadd_front(&stack, listlast(stack));
 }

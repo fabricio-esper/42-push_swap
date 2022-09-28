@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:48:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/27 14:19:24 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 14:09:26 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ int	main(int argc, char **argv)
 			listadd_back(&stack_a, listnew(ft_atoi(argv[i])));
 			i++;
 		}
-		// testing push_x operation
-		listadd_back(&stack_b, listnew(42));
-		push_x(stack_b, stack_a);
-		i = 0;
-		while (stack_a)
+		validate_dup(stack_a);
+		// testing rotate_x operation
+		stack_b = NULL;
+		rrotate_x(stack_a);
+		i = 2;
+		while (i--)
 		{
 			ft_printf("%d\n", stack_a->data);
 			stack_a = stack_a->next;
-			i++;
 		}
 	}
 	else
