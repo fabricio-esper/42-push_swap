@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:48:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/28 14:09:26 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/30 10:06:53 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ int	main(int argc, char **argv)
 		validate_dup(stack_a);
 		// testing rotate_x operation
 		stack_b = NULL;
-		rrotate_x(stack_a);
-		i = 2;
-		while (i--)
+		rrotate_x(&stack_a);
+		while (stack_a)
 		{
 			ft_printf("%d\n", stack_a->data);
 			stack_a = stack_a->next;

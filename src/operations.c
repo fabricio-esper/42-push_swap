@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 12:14:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/28 14:08:34 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:18:07 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	swap_x(t_stack *stack)
 
 void	push_x(t_stack **stack_x, t_stack *stack_y)
 {
-
 	listadd_front(stack_x, listnew(stack_y->data));
 	*stack_y = *stack_y->next;
 }
@@ -42,7 +41,16 @@ void	rotate_x(t_stack *stack)
 	stack->data = buffer;
 }
 
-void	rrotate_x(t_stack *stack)
+void	rrotate_x(t_stack **stack)
 {
-	listadd_front(&stack, listlast(stack));
+	t_stack	*buffer;
+	t_stack	*init;
+
+	buffer = listlast(*stack);
+	listadd_front(stack, listnew(buffer->data));
+	init = *stack;
+	while ((*stack)->next != buffer)
+		*stack = (*stack)->next;
+	(*stack)->next = 0;
+	*stack = init;
 }
