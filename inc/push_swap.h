@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:47:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/30 10:06:45 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/03 16:08:38 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_stack
 
 // error.c
 void	error(void);
-int		is_decimal(char c);
 void	validate_arg(int size, char **str);
 void	validate_dup(t_stack *stack);
 // utils.c
@@ -32,10 +31,12 @@ t_stack	*listadd(t_stack *stack);
 t_stack	*listlast(t_stack *stack);
 void	listadd_front(t_stack **stack, t_stack *new);
 void	listadd_back(t_stack **stack, t_stack *new);
+// utils2.c
 int		listsize(t_stack *stack);
+void	stack_free(t_stack **stack);
 // operations.c
 void	swap_x(t_stack *stack);
-void	push_x(t_stack **stack_x, t_stack *stack_y);
+void	push_x(t_stack **stack_x, t_stack **stack_y);
 void	rotate_x(t_stack *stack);
 void	rrotate_x(t_stack **stack);
 

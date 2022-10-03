@@ -6,7 +6,7 @@
 #    By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 12:19:40 by fesper-s          #+#    #+#              #
-#    Updated: 2022/09/27 12:19:49 by fesper-s         ###   ########.fr        #
+#    Updated: 2022/10/03 09:05:14 by fesper-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CFLAGS	= -g -Wall -Werror -Wextra
 
 LIBFT	= ./libft/libft.a
 
-SRCS	= ./src/push_swap.c ./src/error.c ./src/utils.c ./src/operations.c
+SRCS	= ./src/push_swap.c ./src/error.c ./src/utils.c ./src/utils2.c \
+		  ./src/operations.c
 
 OBJS	= $(SRCS:.c=.o)
 

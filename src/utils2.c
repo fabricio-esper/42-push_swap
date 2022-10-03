@@ -1,50 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 08:48:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/03 16:09:56 by fesper-s         ###   ########.fr       */
+/*   Created: 2022/10/03 08:57:12 by fesper-s          #+#    #+#             */
+/*   Updated: 2022/10/03 16:08:27 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+int	listsize(t_stack *stack)
 {
+	int	i;
+
+	i = 0;
 	while (stack)
 	{
-		ft_printf("%d\n", stack->data);
 		stack = stack->next;
+		i++;
 	}
+	return (i);
 }
 
-int	main(int argc, char **argv)
+void	stack_free(t_stack **stack)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		i;
-
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc > 1)
+	t_stack *buffer;
+	t_stack *del;
+	
+	buffer = *stack;
+	ft_printf("stack free inicio\n");
+	while (buffer)
 	{
-		validate_arg(argc, argv);
-		i = 1;
-		while (i < argc)
-		{
-			listadd_back(&stack_a, listnew(ft_atoi(argv[i])));
-			i++;
-		}
-		validate_dup(stack_a);
-		// testing
-		print_stack(stack_a);
-		stack_free(&stack_a);
-		stack_free(&stack_b);
+		del = buffer;
+		ft_printf("%d\n", buffer->data);
+		buffer = buffer->next;
+		free(del);
 	}
-	else
-		error();
-	return (0);
+	ft_printf("stack free final\n");
+	*stack = NULL;
 }
