@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:47:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/03 16:08:38 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 07:55:12 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct s_stack
 {
 	int				data;
+	int				index;
 	struct s_stack	*next;
 }					t_stack;
 

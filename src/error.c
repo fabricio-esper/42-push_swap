@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 09:51:55 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/03 14:08:44 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 08:36:39 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void	validate_arg(int size, char **str)
 		j = 0;
 		while (str[i][j])
 		{
+			while (str[i][j] == ' ')
+				j++;
+			if (str[i][j] == '-')
+				j++;
 			if (!ft_isdigit(str[i][j]))
 				error();
 			j++;
