@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:47:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/04 07:55:12 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 09:25:18 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	listadd_back(t_stack **stack, t_stack *new);
 // utils2.c
 int		listsize(t_stack *stack);
 void	stack_free(t_stack **stack);
+void	add_split_in_stack(t_stack **stack, char *str);
+void	add_argv_in_stack(t_stack **stack, int size, char **str);
 // operations.c
 void	swap_x(t_stack *stack);
 void	push_x(t_stack **stack_x, t_stack **stack_y);

@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 12:14:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/03 14:28:21 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 09:26:29 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	swap_x(t_stack *stack)
 void	push_x(t_stack **stack_x, t_stack **stack_y)
 {
 	t_stack	*buffer;
+
 	listadd_front(stack_x, listnew((*stack_y)->data));
 	buffer = *stack_y;
 	*stack_y = (*stack_y)->next;

@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:48:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/04 08:19:53 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 09:25:20 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	**splitarg;
-	int		i;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -34,18 +32,9 @@ int	main(int argc, char **argv)
 	{
 		validate_arg(argc, argv);
 		if (argc == 2)
-		{
-			i = -1;
-			splitarg = ft_split(argv[1], ' ');
-			while (splitarg[++i])
-				listadd_back(&stack_a, listnew(ft_atoi(splitarg[i])));
-		}
+			add_split_in_stack(&stack_a, argv[1]);
 		else
-		{
-			i = 0;
-			while (++i < argc)
-				listadd_back(&stack_a, listnew(ft_atoi(argv[i])));
-		}
+			add_argv_in_stack(&stack_a, argc, argv);
 		validate_dup(stack_a);
 		// testing
 		print_stack(stack_a);
