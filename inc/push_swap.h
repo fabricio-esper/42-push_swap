@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:47:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/04 14:27:09 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/06 12:01:20 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct s_stack
 {
 	int				data;
+	int				index;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -25,13 +26,14 @@ typedef struct s_stack
 void	error(void);
 void	validate_arg(int size, char **str);
 void	validate_dup(t_stack *stack);
-// utils.c
+int		a_is_sorted(t_stack *stack_a);
+// list-utils.c
 t_stack	*listnew(int data);
 t_stack	*listadd(t_stack *stack);
 t_stack	*listlast(t_stack *stack);
 void	listadd_front(t_stack **stack, t_stack *new);
 void	listadd_back(t_stack **stack, t_stack *new);
-// utils2.c
+// utils.c
 int		listsize(t_stack *stack);
 void	stack_free(t_stack **stack);
 void	add_split_in_stack(t_stack **stack, char *str);
@@ -41,5 +43,7 @@ void	swap_x(t_stack *stack);
 void	push_x(t_stack **stack_x, t_stack **stack_y);
 void	rotate_x(t_stack *stack);
 void	rrotate_x(t_stack **stack);
+// push_swap.c
+
 
 #endif

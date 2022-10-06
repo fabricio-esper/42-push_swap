@@ -5,51 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 08:33:13 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/03 11:06:35 by fesper-s         ###   ########.fr       */
+/*   Created: 2022/10/03 08:57:12 by fesper-s          #+#    #+#             */
+/*   Updated: 2022/10/05 08:09:51 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*listnew(int data)
+int	listsize(t_stack *stack)
 {
-	t_stack	*new;
+	int	i;
 
-	new = malloc(sizeof(t_stack));
-	if (!new)
-		return (0);
-	new->data = data;
-	new->next = NULL;
-	return (new);
-}
-
-t_stack	*listlast(t_stack *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack->next != 0)
+	i = 0;
+	while (stack)
+	{
 		stack = stack->next;
-	return (stack);
+		i++;
+	}
+	return (i);
 }
 
-void	listadd_front(t_stack **stack, t_stack *new)
-{
-	new->next = *stack;
-	*stack = new;
-}
-
-void	listadd_back(t_stack **stack, t_stack *new)
+void	stack_free(t_stack **stack)
 {
 	t_stack	*buffer;
+	t_stack	*del;
 
-	if (!stack)
-		return ;
-	if (!(*stack))
+	buffer = *stack;
+	while (buffer)
 	{
-		*stack = new;
-		return ;
+		del = buffer;
+		buffer = buffer->next;
+		free(del);
 	}
-	buffer = listlast(*stack);
-	buffer->next = new;
+	*stack = NULL;
+}
+
+void	add_split_in_stack(t_stack **stack, char *str)
+{
+	char	**splitarg;
+	int		i;
+
+	i = -1;
+	splitarg = ft_split(str, ' ');
+	while (splitarg[++i])
+		listadd_back(stack, listnew(ft_atoi(splitarg[i])));
+	i = -1;
+	while (splitarg[++i])
+		free(splitarg[i]);
+	free(splitarg);
+}
+
+void	add_argv_in_stack(t_stack **stack, int size, char **str)
+{
+	int	i;
+
+	i = 0;
+	while (++i < size)
+		listadd_back(stack, listnew(ft_atoi(str[i])));
 }

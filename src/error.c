@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 09:51:55 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/04 09:26:13 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:56:08 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,15 @@ void	validate_dup(t_stack *stack)
 			buffer = stack;
 		}
 	}
+}
+
+int	a_is_sorted(t_stack *stack_a)
+{
+	while (stack_a->next)
+	{
+		if (stack_a->data > stack_a->next->data)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
 }
