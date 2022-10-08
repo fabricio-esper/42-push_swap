@@ -6,14 +6,12 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:08:09 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/09/26 11:11:49 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/08 14:33:41 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-# define BUFFER_SIZE 42
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -76,6 +74,5 @@ int		ft_printf_i(int i);
 int		ft_printf_ud(unsigned int ud);
 int		ft_printf_x(unsigned long x);
 int		ft_printf_xu(unsigned int xu);
-char	*get_next_line(int fd);
 
 #endif

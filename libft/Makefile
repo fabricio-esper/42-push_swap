@@ -22,8 +22,6 @@ OBJS_B	= $(SRCS_B:.c=.o)
 			cc $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME):	$(OBJS)
-			make -C ./get_next_line
-			cp ./get_next_line/get_next_line.a ./$(NAME)
 			ar rcs $(NAME) $(OBJS)
 
 bonus:		$(OBJS_B)
@@ -32,11 +30,9 @@ bonus:		$(OBJS_B)
 all:		$(NAME)
 
 clean:
-			make clean -C ./get_next_line
 			rm -f $(OBJS) $(OBJS_B)
 
 fclean:		clean
-			make fclean -C ./get_next_line
 			rm -f $(NAME)
 
 re:			fclean all
