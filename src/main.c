@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:48:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/10 09:41:42 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:59:00 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_stack(t_stack *stack)
 {
 	while (stack)
 	{
-		ft_printf("index = %d, %d\n", stack->index, stack->data);
+		ft_printf("INDEX = %d      DATA = %d\n", stack->index, stack->data);
 		stack = stack->next;
 	}
 }
@@ -41,7 +41,21 @@ int	main(int argc, char **argv)
 			return (0);
 		find_index(&stack_a);
 		// testing
+		ft_printf("\n");
+		ft_printf("----- before operation -----\n\n");
+		ft_printf("        stack A:\n");
 		print_stack(stack_a);
+		ft_printf("\n");
+		ft_printf("        stack B:\n");
+		print_stack(stack_b);
+		ft_printf("\n");
+		rotate_x(stack_a);
+		ft_printf("----- after operation -----\n\n");
+		ft_printf("        stack A:\n");
+		print_stack(stack_a);
+		ft_printf("\n");
+		ft_printf("        stack B:\n");
+		print_stack(stack_b);
 		stack_free(&stack_a);
 		stack_free(&stack_b);
 	}
