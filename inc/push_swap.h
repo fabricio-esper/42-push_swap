@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:47:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/06 12:01:20 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/10 09:43:04 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ void	swap_x(t_stack *stack);
 void	push_x(t_stack **stack_x, t_stack **stack_y);
 void	rotate_x(t_stack *stack);
 void	rrotate_x(t_stack **stack);
-// push_swap.c
-
+// index.c
+void	sort_int_tab(t_stack **stack, int *i_buffer);
+void	get_index(t_stack **stack, t_stack **s_buffer, int *i_buffer);
+void	find_index(t_stack **stack);
 
 #endif
