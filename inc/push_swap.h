@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:47:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/10 09:43:04 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/11 08:58:27 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,14 @@ void	stack_free(t_stack **stack);
 void	add_split_in_stack(t_stack **stack, char *str);
 void	add_argv_in_stack(t_stack **stack, int size, char **str);
 // operations.c
-void	swap_x(t_stack *stack);
-void	push_x(t_stack **stack_x, t_stack **stack_y);
-void	rotate_x(t_stack *stack);
-void	rrotate_x(t_stack **stack);
+void	swap_x(t_stack *stack, char c);
+void	swap_s(t_stack *stack_a, t_stack *stack_b);
+void	push_x(t_stack **stack_x, t_stack **stack_y, char c);
+void	rotate_x(t_stack *stack, char c);
+void	rotate_r(t_stack *stack_a, t_stack *stack_b);
+// operations-2.c
+void	rrotate_x(t_stack **stack, char c);
+void	rrotate_r(t_stack **stack_a, t_stack **stack_b);
 // index.c
 void	sort_int_tab(t_stack **stack, int *i_buffer);
 void	get_index(t_stack **stack, t_stack **s_buffer, int *i_buffer);

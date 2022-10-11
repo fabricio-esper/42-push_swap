@@ -6,13 +6,13 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 12:14:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/10 13:59:31 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/11 08:59:00 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_x(t_stack *stack)
+void	swap_x(t_stack *stack, char c)
 {
 	int	buffer;
 	int	index;
@@ -24,9 +24,22 @@ void	swap_x(t_stack *stack)
 	stack = stack->next;
 	stack->index = index;
 	stack->data = buffer;
+	if (c == 'a')
+		ft_printf("sa\n");
+	else if (c == 'b')
+		ft_printf("sb\n");
+	else
+		ft_printf("s");
 }
 
-void	push_x(t_stack **stack_x, t_stack **stack_y)
+void	swap_s(t_stack *stack_a, t_stack *stack_b)
+{
+	swap_x(stack_a, 's');
+	swap_x(stack_b, 's');
+	ft_printf("\n");
+}
+
+void	push_x(t_stack **stack_x, t_stack **stack_y, char c)
 {
 	t_stack	*buffer;
 
@@ -35,9 +48,10 @@ void	push_x(t_stack **stack_x, t_stack **stack_y)
 	buffer = *stack_y;
 	*stack_y = (*stack_y)->next;
 	free(buffer);
+	ft_printf("p%c\n", c);
 }
 
-void	rotate_x(t_stack *stack)
+void	rotate_x(t_stack *stack, char c)
 {
 	int	buffer;
 	int	index;
@@ -46,23 +60,23 @@ void	rotate_x(t_stack *stack)
 	buffer = stack->data;
 	while (stack->next)
 	{
+		stack->index = stack->next->index;
 		stack->data = stack->next->data;
 		stack = stack->next;
 	}
+	stack->index = index;
 	stack->data = buffer;
+	if (c == 'a')
+		ft_printf("ra\n");
+	else if (c == 'b')
+		ft_printf("rb\n");
+	else
+		ft_printf("r");
 }
 
-void	rrotate_x(t_stack **stack)
+void	rotate_r(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack	*buffer;
-	t_stack	*init;
-
-	buffer = listlast(*stack);
-	listadd_front(stack, listnew(buffer->data));
-	init = *stack;
-	while ((*stack)->next != buffer)
-		*stack = (*stack)->next;
-	(*stack)->next = 0;
-	*stack = init;
-	free(buffer);
+	rotate_x(stack_a, 'r');
+	rotate_x(stack_b, 'r');
+	ft_printf("\n");
 }
