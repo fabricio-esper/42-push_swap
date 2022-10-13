@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 08:57:12 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/05 08:09:51 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/13 08:12:27 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,5 @@ void	add_argv_in_stack(t_stack **stack, int size, char **str)
 
 	i = 0;
 	while (++i < size)
-		listadd_back(stack, listnew(ft_atoi(str[i])));
+		listadd_back(stack, listnew((ft_atoi(str[i]))));
 }
