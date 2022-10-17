@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 08:08:03 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/13 07:56:31 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:52:43 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_atoi(const char *nptr)
 	nbr *= sign;
 	if (nbr > 2147483647 || nbr < -2147483648)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
 	return (nbr);
