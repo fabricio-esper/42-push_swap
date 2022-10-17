@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:48:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/17 08:31:27 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:03:40 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,56 @@ void	print_stack(t_stack *stack)
 	}
 }
 
+void	sort_three(t_stack **stack)
+{
+	while (!a_is_sorted(*stack))
+	{
+		if ((*stack)->index > (*stack)->next->index)
+			swap_x(*stack, 'a');
+		else
+			rrotate_x(stack, 'a');
+	}
+}
+
+void	sort_five(int size, t_stack **stack_a, t_stack **stack_b)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 2)
+	{
+		while ((*stack_a)->index != 0 && (*stack_a)->index != size - 1)
+			rotate_x(*stack_a, 'a');
+		push_x(stack_b, stack_a, 'b');
+	}
+	sort_three(stack_a);
+	i = -1;
+	while (++i < 2)
+	{
+		push_x(stack_a, stack_b, 'a');
+		if ((*stack_a)->index > (*stack_a)->next->index)
+			rotate_x(*stack_a, 'a');
+	}
+}
+
+void	sort_radix(t_stack **stack_a, t_stack **stack_b)
+{
+	
+}
+
+void	sort(t_stack **stack_a, t_stack **stack_b)
+{
+	int	size;
+
+	size = listsize(*stack_a);
+	if (size <= 3)
+		sort_three(stack_a);
+	else if (size <= 5)
+		sort_five(size, stack_a, stack_b);
+	else
+		sort_radix(stack_a, stack_b);
+}
+
 void	testing(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_printf("\n");
@@ -33,10 +83,7 @@ void	testing(t_stack **stack_a, t_stack **stack_b)
 	print_stack(*stack_b);
 	ft_printf("\n");
 	ft_printf("------- OPERATIONS --------\n\n");
-	push_x(stack_b, stack_a, 'b');
-	push_x(stack_b, stack_a, 'b');
-	push_x(stack_b, stack_a, 'b');
-	rrotate_r(stack_a, stack_b);
+	sort(stack_a, stack_b);
 	ft_printf("\n");
 	ft_printf("----- after operation -----\n\n");
 	ft_printf("        stack A:\n");
