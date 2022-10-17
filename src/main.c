@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:48:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/14 09:48:52 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/17 08:31:27 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	testing(t_stack **stack_a, t_stack **stack_b)
 	push_x(stack_b, stack_a, 'b');
 	push_x(stack_b, stack_a, 'b');
 	push_x(stack_b, stack_a, 'b');
-	rrotate_r(stack_a, stack_b); // CONDITIONAL JUMP?!
+	rrotate_r(stack_a, stack_b);
 	ft_printf("\n");
 	ft_printf("----- after operation -----\n\n");
 	ft_printf("        stack A:\n");

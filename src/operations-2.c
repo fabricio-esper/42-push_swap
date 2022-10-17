@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 08:58:44 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/11 08:59:03 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/17 08:40:31 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	rrotate_x(t_stack **stack, char c)
 
 	buffer = listlast(*stack);
 	listadd_front(stack, listnew(buffer->data));
+	(*stack)->index = buffer->index;
 	init = *stack;
 	while ((*stack)->next != buffer)
 		*stack = (*stack)->next;
