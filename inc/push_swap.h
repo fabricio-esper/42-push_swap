@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:47:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/11 08:58:27 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/18 09:34:30 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+// main.c
+void	sort_three(t_stack **stack);
+void	sort_five(int size, t_stack **stack_a, t_stack **stack_b);
+void	sort_radix(int size, t_stack **stack_a, t_stack **stack_b);
+void	sort(t_stack **stack_a, t_stack **stack_b);
 // error.c
 void	error(void);
 void	validate_arg(int size, char **str);
@@ -38,6 +43,10 @@ int		listsize(t_stack *stack);
 void	stack_free(t_stack **stack);
 void	add_split_in_stack(t_stack **stack, char *str);
 void	add_argv_in_stack(t_stack **stack, int size, char **str);
+// index.c
+void	sort_int_tab(t_stack **stack, int *i_buffer);
+void	get_index(t_stack **stack, t_stack **s_buffer, int *i_buffer);
+void	find_index(t_stack **stack);
 // operations.c
 void	swap_x(t_stack *stack, char c);
 void	swap_s(t_stack *stack_a, t_stack *stack_b);
@@ -47,9 +56,5 @@ void	rotate_r(t_stack *stack_a, t_stack *stack_b);
 // operations-2.c
 void	rrotate_x(t_stack **stack, char c);
 void	rrotate_r(t_stack **stack_a, t_stack **stack_b);
-// index.c
-void	sort_int_tab(t_stack **stack, int *i_buffer);
-void	get_index(t_stack **stack, t_stack **s_buffer, int *i_buffer);
-void	find_index(t_stack **stack);
 
 #endif

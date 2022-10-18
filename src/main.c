@@ -6,21 +6,11 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:48:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/17 14:03:40 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/18 09:39:44 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// print_stack for testing
-void	print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		ft_printf("INDEX = %d      DATA = %d\n", stack->index, stack->data);
-		stack = stack->next;
-	}
-}
 
 void	sort_three(t_stack **stack)
 {
@@ -54,9 +44,26 @@ void	sort_five(int size, t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	sort_radix(t_stack **stack_a, t_stack **stack_b)
+void	sort_radix(int size, t_stack **stack_a, t_stack **stack_b)
 {
-	
+	int	i;
+	int	j;
+		
+	j = 0;
+	while (!a_is_sorted(*stack_a))
+	{
+		i = -1;
+		while (++i < size)
+		{
+			if (((*stack_a)->index >> j & 1) == 1)
+				rotate_x(*stack_a, 'a');
+			else
+				push_x(stack_b, stack_a, 'b');
+		}
+		while (listsize(*stack_b) != 0)
+			push_x(stack_a, stack_b, 'a');
+		j++;
+	}
 }
 
 void	sort(t_stack **stack_a, t_stack **stack_b)
@@ -69,28 +76,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	else if (size <= 5)
 		sort_five(size, stack_a, stack_b);
 	else
-		sort_radix(stack_a, stack_b);
-}
-
-void	testing(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_printf("\n");
-	ft_printf("----- before operation -----\n\n");
-	ft_printf("        stack A:\n");
-	print_stack(*stack_a);
-	ft_printf("\n");
-	ft_printf("        stack B:\n");
-	print_stack(*stack_b);
-	ft_printf("\n");
-	ft_printf("------- OPERATIONS --------\n\n");
-	sort(stack_a, stack_b);
-	ft_printf("\n");
-	ft_printf("----- after operation -----\n\n");
-	ft_printf("        stack A:\n");
-	print_stack(*stack_a);
-	ft_printf("\n");
-	ft_printf("        stack B:\n");
-	print_stack(*stack_b);
+		sort_radix(size, stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -111,7 +97,7 @@ int	main(int argc, char **argv)
 		if (a_is_sorted(stack_a))
 			return (0);
 		find_index(&stack_a);
-		testing(&stack_a, &stack_b); // JUST FOR TESTING !!
+		sort(&stack_a, &stack_b);
 		stack_free(&stack_a);
 		stack_free(&stack_b);
 	}
