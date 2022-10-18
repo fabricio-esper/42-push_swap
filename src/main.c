@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 08:48:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2022/10/18 09:39:44 by fesper-s         ###   ########.fr       */
+/*   Updated: 2022/10/18 10:28:24 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	sort_radix(int size, t_stack **stack_a, t_stack **stack_b)
 {
 	int	i;
 	int	j;
-		
+
 	j = 0;
 	while (!a_is_sorted(*stack_a))
 	{
