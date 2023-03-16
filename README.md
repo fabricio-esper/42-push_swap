@@ -1,5 +1,5 @@
 # 42-push_swap - 84% ✅
-This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. I used mainly radix sort.
+This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves.
 
 ## Usage
 `make` and execution `./push_swap <numbers non-sorted>`. For example:
