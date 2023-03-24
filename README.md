@@ -1,4 +1,9 @@
-# 42-push_swap - 84% ✅
+<div align="center">
+<a><img height="120px" src="https://github.com/fesper-s/fesper-s/blob/main/src/42_badges/push_swape.png"></a>
+
+# push_swap - 84% ✅
+</div>
+
 This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves.
 
 ## Usage
